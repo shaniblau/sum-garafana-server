@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 import logging as log
 
 app = Flask(__name__)
@@ -11,3 +11,4 @@ logger = log.getLogger('app_loger')
 def get_webhook(alert):
     logger.info(f'alert received, reason: {alert.json}')
     print(alert.json)
+    return Response(status=200)
