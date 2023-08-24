@@ -1,15 +1,13 @@
+from flask import Flask
 import logging as log
-from fastapi import FastAPI
 
-app = FastAPI()
-
+app = Flask(__name__)
 log_format = '%(asctime)s ,%(message)s'
 log.basicConfig(filename='alerts.log', format=log_format)
-logger = log.getLogger('app_logger')
+logger = log.getLogger('app_loger')
 
 
-@app.post('/webhook')
-async def get_webhook(alert):
-    logger.info(f'alert received, reason: {alert.json()}')
-    print(alert.json())
-    return {"status": "success"}
+@app.route('/webhook', methods=['POST'])
+def get_webhook(alert):
+    logger.info(f'alert received, reason: {alert.json}')
+    print(alert.json)
