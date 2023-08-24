@@ -10,6 +10,6 @@ logger = log.getLogger('app_logger')
 
 @app.post('/webhook')
 async def get_webhook(alert: dict):
-    logger.info(f'Alert received: {alert["annotations"]}')
-    print(alert)
+    logger.info(f'Alert received: {alert["alerts"]}')
+    print(alert["alerts"])
     return {"status": "success"}
