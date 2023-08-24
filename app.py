@@ -4,7 +4,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 log_format = '%(asctime)s ,%(message)s'
-log.basicConfig(filename='alerts.log', format=log_format)
+log.basicConfig(filename='alerts.log', format=log_format, level=log.INFO)
 logger = log.getLogger('app_logger')
 
 
